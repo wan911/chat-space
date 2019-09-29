@@ -30,8 +30,8 @@
     %form
       .input-box
         .input-box__message
-          %input.input-box__message__text{:name => "message", :placeholder => "type a message", :type => "text", :value => ""}
+          %input.input-box__message__text{name: "message", placeholder: "type a message", type: "text", value: ""}
           %label.input-box__message__image{for: "upload-icon"}
             %i.fa.fa-picture-o
-            %input.input-box__message__image--file{:type => "file", id: "upload-icon"}
-        %input.input-box__sent{:name => "message-btn", :type => "submit", :value => "Send"}
+            %input.input-box__message__image--file{type: "file", id: "upload-icon"}
+        %input.input-box__sent{name: "message-btn", type: "submit", value: "Send"}
