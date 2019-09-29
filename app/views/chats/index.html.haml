@@ -1,0 +1,37 @@
+%p.flash-box
+  グループを作成しました
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user<
+          ユーザー名
+        %ul.side-header__box__menu
+          %li.side-header__box__menu--edit
+            = link_to '' do
+              = fa_icon 'edit'
+          %li.side-header__box__menu--cog
+            = link_to '' do
+              = fa_icon 'cog'
+    .side-groups
+      = render "group"    
+  .chat-main
+    .main-header
+      .header-left
+        %p.header-left__group
+          グループ名
+        %p.header-left__members
+          Member: ユーザー名
+      = link_to '', class: 'main-header__edit' do
+        Edit
+    .chats
+      .chat
+        = render "chat"
+    %form
+      .input-box
+        .input-box__message
+          %input.input-box__message__text{name: "message", placeholder: "type a message", type: "text", value: ""}
+          %label.input-box__message__image{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            %input.input-box__message__image--file{type: "file", id: "upload-icon"}
+        %input.input-box__sent{name: "message-btn", type: "submit", value: "Send"}

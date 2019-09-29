@@ -1,0 +1,11 @@
+$blueRightColor: #38AEF0;
+
+@mixin basebox($height, $background-color){
+  height: $height;
+  background-color: $background-color;
+}
+
+@mixin a-box(){
+  text-decoration: none;
+  color: white;
+}
