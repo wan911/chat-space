@@ -1,18 +1,7 @@
-= link_to '' do
-  .side-group
-    %p.side-group__name
-      テスト
-    %p.side-group__message
-      犬
-= link_to '' do
-  .side-group
-    %p.side-group__name
-      テスト
-    %p.side-group__message
-      犬
-= link_to '' do
-  .side-group
-    %p.side-group__name
-      テスト
-    %p.side-group__message
-      犬
+- current_user.groups.each do |group|
+  = link_to group_chats_path(group) do
+    .side-group
+      %p.side-group__name
+        = group.name
+      %p.side-group__message
+        犬
