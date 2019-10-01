@@ -11,7 +11,7 @@
         Edit
     .chats
       .chat
-        = render "chat"
+        = render partial: 'chat', collection: @chats
     .form
       = form_for [@group, @chat] do |f|
         .input-box
