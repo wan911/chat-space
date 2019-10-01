@@ -4,19 +4,22 @@
     .main-header
       .header-left
         %p.header-left__group
-          グループ名
+          = @group.name
         %p.header-left__members
-          Member: ユーザー名
-      = link_to '/groups/13/edit', class: 'main-header__edit' do
+          Member: 
+          - @group.users.each do |group_user|
+            = group_user.name
+      = link_to edit_group_path(@group), class: 'main-header__edit' do
         Edit
     .chats
       .chat
-        = render "chat"
-    %form
-      .input-box
-        .input-box__message
-          %input.input-box__message__text{name: "message", placeholder: "type a message", type: "text", value: ""}
-          %label.input-box__message__image{for: "upload-icon"}
-            %i.fa.fa-picture-o
-            %input.input-box__message__image--file{type: "file", id: "upload-icon"}
-        %input.input-box__sent{name: "message-btn", type: "submit", value: "Send"}
+        = render partial: 'chat', collection: @chats
+    .form
+      = form_for [@group, @chat] do |f|
+        .input-box
+          .input-box__message
+            = f.text_field :message, class: "input-box__message__text"
+            = f.label :image ,class: "input-box__message__image" do
+              = fa_icon "picture-o"
+              = f.file_field :image, class: "input-box__message__image--file"
+          = f.submit 'Send', class: "input-box__sent"

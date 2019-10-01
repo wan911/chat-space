@@ -88,7 +88,6 @@
     @include basebox(calc(100vh - 100px - 90px), #fafafa);
     padding: 6px 40px 0 40px;
     overflow: scroll;
-    overflow: hidden;
     box-sizing: border-box;
     .chat {
       padding-top: 40px;
@@ -105,10 +104,13 @@
           margin-left: 10px;
         }
       }
-      &__message {
-        margin: 10px 0 40px 0;
-        font-size: 14px;
-        color: #434A54;
+      &__content {
+        margin-bottom: 40px;
+        &__message {
+          margin: 10px 0;
+          font-size: 14px;
+          color: #434A54;
+        }
       }
     }
   }
@@ -135,7 +137,6 @@
           font-size: 1.3rem;
           top: 10px;
           right: 10px;
-          
           cursor: pointer;
           &--file {
             display: none;
