@@ -4,9 +4,11 @@
     .main-header
       .header-left
         %p.header-left__group
-          グループ名
+          = @group.name
         %p.header-left__members
-          Member: ユーザー名
+          Member: 
+          - @group.users.each do |group_user|
+            = group_user.name
       = link_to edit_group_path(@group), class: 'main-header__edit' do
         Edit
     .chats
