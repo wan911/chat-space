@@ -11,9 +11,8 @@
             = group_user.name
       = link_to edit_group_path(@group), class: 'main-header__edit' do
         Edit
-    .chats
-      .chat
-        = render partial: 'chat', collection: @chats
+    .chats      
+      = render partial: 'chat', collection: @chats
     .form
       = form_for [@group, @chat] do |f|
         .input-box
