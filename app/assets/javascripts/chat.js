@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(chat){
-    if ( chat.image === null ){
+      let addImage = (chat.image !== null) ? `<img src=${ chat.image } class="chat__content__image">` : ''
       let html = `<div class="chat">
                     <div class="chat__upper">
                       <p class="chat__upper--talker">
@@ -12,26 +12,10 @@ $(function(){
                     </div>
                     <div class="chat__content">
                       <p class="chat__content__message">${ chat.message }</p>
+                      ${ addImage }
                     </div>
                   </div>`
       return html;
-    }else{
-      let html = `<div class="chat">
-                    <div class="chat__upper">
-                      <p class="chat__upper--talker">
-                        ${ chat.name }
-                      </p>
-                      <p class="chat__upper--date">
-                        ${ chat.time }
-                      </p>
-                    </div>
-                    <div class="chat__content">
-                      <p class="chat__content__message">${ chat.message }</p>
-                      <img src=${ chat.image } class="chat__content__image">
-                    </div>
-                  </div>`
-      return html;
-    };
   }
 
   $("#new_chat").on("submit", function(e){
