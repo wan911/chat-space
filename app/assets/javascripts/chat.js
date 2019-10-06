@@ -56,7 +56,8 @@ $(function(){
       $(".input-box__sent").attr("disabled", false);
     })
     .fail(function(){
-
-    })
-  })
+      alert('エラーが発生しました');
+      $(".input-box__sent").attr("disabled", false);
+    });
+  });
 });
