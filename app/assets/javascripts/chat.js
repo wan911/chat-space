@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(chat){
-
     if ( chat.image === null ){
       let html = `<div class="chat">
                     <div class="chat__upper">
