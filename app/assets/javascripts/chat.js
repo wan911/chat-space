@@ -51,6 +51,7 @@ $(function(){
       let html = buildHTML(data);
       $(".chats").append(html);
       $("#chat_message").val("");
+      $(".chats").animate( {scrollTop: $(".chats")[0].scrollHeight}, 'fast' );
     })
     .fail(function(){
 
