@@ -49,7 +49,6 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $(".chats").append(html);
-      $("#chat_message").val("");
       $(".chats").animate( {scrollTop: $(".chats")[0].scrollHeight}, 'fast' );
       $('#new_chat')[0].reset();
       $(".input-box__sent").attr("disabled", false);
