@@ -52,6 +52,7 @@ $(function(){
       $(".chats").append(html);
       $("#chat_message").val("");
       $(".chats").animate( {scrollTop: $(".chats")[0].scrollHeight}, 'fast' );
+      $(".input-box__sent").attr("disabled", false);
     })
     .fail(function(){
 
