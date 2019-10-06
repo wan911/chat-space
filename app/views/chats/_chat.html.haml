@@ -1,10 +1,11 @@
-.chat__upper
-  %p.chat__upper--talker
-    = chat.user.name
-  %p.chat__upper--date
-    = chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})%H:%M:%S")
-.chat__content
-  %p.chat__content__message<
-    - if chat.message.present?
-      = chat.message
-  = image_tag chat.image.url, class: 'chat__content__image' if chat.image.present?
+.chat
+  .chat__upper
+    %p.chat__upper--talker
+      = chat.user.name
+    %p.chat__upper--date
+      = chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})%H:%M:%S")
+  .chat__content
+    %p.chat__content__message<
+      - if chat.message.present?
+        = chat.message
+    = image_tag chat.image.url, class: 'chat__content__image' if chat.image.present?
