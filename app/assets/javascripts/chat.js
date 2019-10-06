@@ -48,7 +48,9 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      
+      let html = buildHTML(data);
+      $(".chats").append(html);
+      $("#chat_message").val("");
     })
     .fail(function(){
 
