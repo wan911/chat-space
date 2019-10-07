@@ -38,5 +38,8 @@ $(function(){
         appendErroMsgToHTML("一致するユーザーが見つかりません");
       }
     })
+    .fail(function(){
+      alert('ユーザー検索に失敗しました');
+    })
   });
 });
