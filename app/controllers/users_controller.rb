@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = Group.users.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json 
+    end
+  end
+
   private
 
   def user_params
