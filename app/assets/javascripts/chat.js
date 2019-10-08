@@ -45,15 +45,15 @@ $(function(){
 
   $(function(){
     let reloadMessages = function() {
-      last_chat_id = $('.chat:last').data('message-id')
+      last_chat_id = $('.chat:last').data('message_id')
       $.ajax({
-        url: 'location.href',
+        url: 'api/chats',
         type: 'GET',
         dataType: 'json',
         data: {id: last_chat_id}
       })
-      .done(function(chat){
-        console.log('success');
+      .done(function(chats){
+
       })
       .fail(function(){
         console.log('error');
