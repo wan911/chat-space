@@ -37,6 +37,12 @@ $(function(){
     });
   });
 
+  $(function(){
+    $(document).on("click",".user-search-remove", function(){
+      $(this).parent().remove();
+    })
+  })
+
   $('#user-search-field').on("keyup",function(){
     let input = $('#user-search-field').val();
     if (input.length != ""){
