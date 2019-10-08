@@ -1,10 +1,10 @@
 $(function(){
   function buildHTML(chat){
       let addImage = (chat.image !== null) ? `<img src=${ chat.image } class="chat__content__image">` : ''
-      let html = `<div class="chat">
+      let html = `<div class="chat" data-message-id='${ chat.id }' >
                     <div class="chat__upper">
                       <p class="chat__upper--talker">
-                        ${ chat.name }
+                        ${ chat.user_name }
                       </p>
                       <p class="chat__upper--date">
                         ${ chat.time }
@@ -45,7 +45,7 @@ $(function(){
 
   $(function(){
     let reloadMessages = function() {
-      last_chat_id = $('.chat:last').data('message_id')
+      last_chat_id = $('.chat:last').data('message-id')
       $.ajax({
         url: 'api/chats',
         type: 'GET',
@@ -53,7 +53,11 @@ $(function(){
         data: {id: last_chat_id}
       })
       .done(function(chats){
-
+        let insertHTML = '';
+        chats.forEach(function(chat){
+          insertHTML = buildHTML(chat);
+          $(".chats").append(insertHTML);
+        })
       })
       .fail(function(){
         console.log('error');
