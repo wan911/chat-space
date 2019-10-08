@@ -17,7 +17,6 @@
       =f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chatchat-group-form__search.clearfix
-      = form_tag(users_path, method: :get) do
         = text_field_tag :search, '', class: 'chat-group-form__input', id: 'user-search-field', placeholder:'追加したいユーザー名を入力してください'
       .user-search-result
 
@@ -32,7 +31,7 @@
             %p.chat-group-user__name 
               = user.name
             .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 
-              = 削除 unless current_user
+              削除
       
   .chat-group-form__field
     .chat-group-form__field--left
