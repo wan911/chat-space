@@ -42,4 +42,22 @@ $(function(){
       $(".input-box__sent").attr("disabled", false);
     });
   });
+
+  $(function(){
+    let reloadMessages = function() {
+      last_chat_id = $('.chat:last').data('message-id')
+      $.ajax({
+        url: 'location.href',
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_chat_id}
+      })
+      .done(function(chat){
+        console.log('success');
+      })
+      .fail(function(){
+        console.log('error');
+      });
+    };
+  });
 });
