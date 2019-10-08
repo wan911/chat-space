@@ -57,6 +57,7 @@ $(function(){
         chats.forEach(function(chat){
           insertHTML = buildHTML(chat);
           $(".chats").append(insertHTML);
+          $(".chats").animate( {scrollTop: $(".chats")[0].scrollHeight}, 'fast' );
         })
       })
       .fail(function(){
