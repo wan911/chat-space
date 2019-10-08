@@ -32,13 +32,14 @@ $(function(){
     $(document).on("click", ".user-search-add", function(){
       let id = $(this).data("user-id");
       let name = $(this).data("user-name");
-      $(this).parent().remove()
+      $(this).parent().remove();
       appendMember(name, id);
     });
   });
 
   $('#user-search-field').on("keyup",function(){
     let input = $('#user-search-field').val();
+    if (input.length != ""){
       $.ajax({
       type: 'GET',
       url:  '/users',
@@ -51,6 +52,7 @@ $(function(){
       if (users.length !== 0 ){
         users.forEach(function(user){
           appendUser(user);
+          
         });
       }else{
         appendErroMsgToHTML("一致するユーザーが見つかりません");
@@ -59,5 +61,6 @@ $(function(){
     .fail(function(){
       alert('ユーザー検索に失敗しました');
     });
+    }
   });
 });
