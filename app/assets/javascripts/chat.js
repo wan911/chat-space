@@ -47,7 +47,6 @@ $(function(){
     let reloadMessages = function() {
       if(window.location.href.match(/\/groups\/\d+\/chats/)){
       last_chat_id = $('.chat:last').data('message-id')
-      console.log(last_chat_id)
       $.ajax({
         url: 'api/chats',
         type: 'GET',
@@ -55,7 +54,6 @@ $(function(){
         data: {id: last_chat_id}
       })
       .done(function(chats){
-        console.log(chats)
         let insertHTML = '';
         chats.forEach(function(chat){
           insertHTML = buildHTML(chat);
